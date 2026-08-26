@@ -92,16 +92,16 @@
         <span class="cinta__pie">De Pachacámac</span>
       </div>
       <div class="cinta__dato">
-        <span class="cinta__cifra">15355546</span>
-        <span class="cinta__pie">Partida registral</span>
+        <span class="cinta__cifra">SUNARP</span>
+        <span class="cinta__pie">Partida propia</span>
       </div>
       <div class="cinta__dato">
         <span class="cinta__cifra">16,000 m²</span>
         <span class="cinta__pie">De áreas verdes</span>
       </div>
       <div class="cinta__dato">
-        <span class="cinta__cifra">SUNARP</span>
-        <span class="cinta__pie">Independizadas</span>
+        <span class="cinta__cifra">Titulada</span>
+        <span class="cinta__pie">Lista para escriturar</span>
       </div>
     </div>
   </div>
@@ -317,8 +317,11 @@
 
     <div class="partida revela">
       <p class="partida__encabezado">Zona Registral N.º IX · Sede Lima · Oficina Registral Lima</p>
-      <p class="partida__numero">15355546</p>
-      <p class="partida__glosa">Partida del predio matriz, Registro de Predios</p>
+      <p class="partida__titular">Cada parcela con su propia partida</p>
+      <p class="partida__glosa">
+        Independizadas en el Registro de Predios. Usted compra una parcela con su
+        inscripción, no un porcentaje de un terreno grande.
+      </p>
 
       <dl class="partida__filas">
         <div class="partida__fila"><dt>Predio</dt><dd>El Manzano, Pampa El Taro</dd></div>
@@ -329,7 +332,7 @@
 
       <span class="sello">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-        Verificable en SUNARP
+        Le mostramos la partida en la visita
       </span>
     </div>
   </div>
@@ -338,42 +341,50 @@
 <!-- ============================================================
      SU CASA
      ============================================================ -->
-<section class="seccion" id="casa">
+<section class="seccion casa" id="casa">
   <div class="envoltura">
     <div class="revela">
       <p class="rotulo">Su casa</p>
-      <h2 class="titulo-seccion">Le entregamos los planos para construir</h2>
+      <h2 class="titulo-seccion">La casita, lista para levantar</h2>
       <p class="bajada">
-        No tiene que empezar de cero. Con su parcela recibe modelos de planos de
-        arquitectura, listos para llevar a su maestro o a su arquitecto.
+        El modelo que más piden: <strong>38 m² techados y 15 m² de terraza</strong>.
+        Con su parcela recibe los planos de arquitectura para llevárselos a su
+        maestro o a su arquitecto.
       </p>
     </div>
 
-    <figure class="referencia revela">
-      <img src="material/web/referencia-casa-piedra-referencia.jpg"
-           alt="Render de una casa de campo de piedra y teja, con carport, terraza y piscina, en un entorno de cerros verdes"
-           loading="lazy" decoding="async">
-      <figcaption>
-        <span>Así se puede ver una casa en Alta Colina: piedra, teja y madera, en el mismo
-        lenguaje del cerro.</span>
-        <span class="referencia__aviso">Imagen referencial. No es una construcción del condominio.</span>
-      </figcaption>
+    <!-- el recorrido en 3D vende mucho mas que un plano suelto -->
+    <figure class="casa__video revela">
+      <video src="material/web/video-casa-modelo.mp4"
+             poster="material/web/video-casa-modelo-poster.jpg"
+             controls muted loop playsinline preload="none"></video>
+      <figcaption>Recorrido de la casa modelo</figcaption>
     </figure>
 
-    <div class="laminas">
-      <figure class="lamina revela">
-        <img src="material/web/plano-plano-arq-planta.jpg"
-             alt="Lámina A-01: plano de distribución en planta de la casa modelo"
-             loading="lazy" decoding="async">
-        <figcaption><span>Distribución en planta</span><span>A-01</span></figcaption>
-      </figure>
-      <figure class="lamina revela">
-        <img src="material/web/plano-plano-arq-elevacion-cortes.jpg"
-             alt="Lámina A-02: elevación principal y cortes de la casa modelo"
-             loading="lazy" decoding="async">
-        <figcaption><span>Elevación y cortes</span><span>A-02</span></figcaption>
-      </figure>
+    <div class="casa__datos revela">
+      <div class="casa__dato">
+        <span class="casa__n">38<span class="casa__u">m²</span></span>
+        <span class="casa__t">Área techada</span>
+      </div>
+      <div class="casa__dato">
+        <span class="casa__n">15<span class="casa__u">m²</span></span>
+        <span class="casa__t">Terraza</span>
+      </div>
+      <div class="casa__dato">
+        <span class="casa__n">53<span class="casa__u">m²</span></span>
+        <span class="casa__t">En total</span>
+      </div>
     </div>
+
+    <figure class="casa__plano revela">
+      <img src="material/web/casa-planta-casita-38m2.jpg"
+           alt="Plano de distribución de la casa modelo: dormitorio, baño, sala, comedor y cocina"
+           loading="lazy" decoding="async">
+      <figcaption>
+        <span>Distribución de la casa modelo</span>
+        <span>6.30 × 5.90 m</span>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
@@ -629,8 +640,8 @@
     <div class="pie__datos">
       <p class="pie__legal">
         Alta Colina · Condominio · El Manzano, Pampa El Taro, Santo Domingo de los Olleros,
-        Huarochirí, Lima. Predio inscrito en la partida N.º 15355546 del Registro de Predios,
-        Zona Registral N.º IX, Sede Lima.
+        Huarochirí, Lima. Predio inscrito en el Registro de Predios de la Zona Registral
+        N.º IX, Sede Lima. Parcelas independizadas.
       </p>
       <!-- OJO: el Libro de Reclamaciones es obligatorio por la Ley 29571.
            Falta el RUC de la empresa y el enlace del libro virtual. Ver README. -->

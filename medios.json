@@ -1,7 +1,7 @@
 {
  "proyecto": "Alta Colina",
- "fotos": 34,
- "videos": 4,
+ "fotos": 37,
+ "videos": 5,
  "medios": [
   {
    "tipo": "foto",
@@ -32,6 +32,21 @@
    "leyenda": "Camino empedrado y zona de descanso",
    "orden": 3,
    "galeria": false
+  },
+  {
+   "tipo": "foto",
+   "cat": "proyecto",
+   "slug": "proyecto-casa-construida-porton",
+   "origen": "casa-construida-porton.jpg",
+   "src": "material/web/proyecto-casa-construida-porton.jpg",
+   "thumb": "material/web/proyecto-casa-construida-porton-thumb.jpg",
+   "w": 720,
+   "h": 1600,
+   "orientacion": "vertical",
+   "alt": "",
+   "leyenda": "",
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -261,6 +276,23 @@
   {
    "tipo": "video",
    "cat": "video",
+   "slug": "video-casa-modelo",
+   "origen": "casa-modelo.mp4",
+   "src": "material/web/video-casa-modelo.mp4",
+   "poster": "material/web/video-casa-modelo-poster.jpg",
+   "thumb": "material/web/video-casa-modelo-thumb.jpg",
+   "w": 1280,
+   "h": 720,
+   "dur": 14.4,
+   "orientacion": "horizontal",
+   "alt": "",
+   "leyenda": "",
+   "galeria": false,
+   "orden": 900
+  },
+  {
+   "tipo": "video",
+   "cat": "video",
    "slug": "video-entrada-al-condominio",
    "origen": "entrada-al-condominio.mp4",
    "src": "material/web/video-entrada-al-condominio.mp4",
@@ -325,6 +357,21 @@
    "leyenda": "Vivir con tranquilidad",
    "orden": 4,
    "galeria": true
+  },
+  {
+   "tipo": "foto",
+   "cat": "plano",
+   "slug": "plano-mapa-predios-vendidos",
+   "origen": "mapa-predios-vendidos.jpg",
+   "src": "material/web/plano-mapa-predios-vendidos.jpg",
+   "thumb": "material/web/plano-mapa-predios-vendidos-thumb.jpg",
+   "w": 720,
+   "h": 1280,
+   "orientacion": "vertical",
+   "alt": "",
+   "leyenda": "",
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -490,6 +537,21 @@
    "leyenda": "",
    "orden": 900,
    "galeria": false
+  },
+  {
+   "tipo": "foto",
+   "cat": "casa",
+   "slug": "casa-planta-casita-38m2",
+   "origen": "planta-casita-38m2.jpg",
+   "src": "material/web/casa-planta-casita-38m2.jpg",
+   "thumb": "material/web/casa-planta-casita-38m2-thumb.jpg",
+   "w": 1173,
+   "h": 1089,
+   "orientacion": "horizontal",
+   "alt": "",
+   "leyenda": "",
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",

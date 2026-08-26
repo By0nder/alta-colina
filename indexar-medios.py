@@ -35,6 +35,7 @@ CARPETAS = {
     "planos":            "plano",
     "alrededores":       "alrededores",
     "referencia-stock":  "referencia",
+    "casa-modelo":       "casa",
     "asesor":            "asesor",
     "marca":             "marca",
 }
