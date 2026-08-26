@@ -10,9 +10,12 @@ permissions:
   pages: write
   id-token: write
 
+# Con cancel-in-progress en false, dos despliegues seguidos corrian a la vez y
+# el del commit viejo podia terminar ultimo y pisar al nuevo. Paso exactamente
+# eso el 2026-08-26: la web quedo sirviendo una version anterior.
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   publicar:
