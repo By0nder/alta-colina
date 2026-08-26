@@ -179,13 +179,12 @@ def main():
             if not m:
                 continue
             m["_origen_ruta"] = str(src)
-            if slug in previo:  # no pisar textos escritos a mano
-                m["alt"] = previo[slug].get("alt", "")
-                m["leyenda"] = previo[slug].get("leyenda", "")
-                m["cat"] = previo[slug].get("cat", m["cat"])
-                m["destacada"] = previo[slug].get("destacada", False)
-            else:
-                m["destacada"] = False
+            if slug in previo:  # no pisar lo que se decidio a mano
+                for campo in ("alt", "leyenda", "cat", "orden", "galeria"):
+                    if campo in previo[slug]:
+                        m[campo] = previo[slug][campo]
+            m.setdefault("galeria", False)   # solo entra al carrusel lo que se elige
+            m.setdefault("orden", 900)
             medios.append(m)
             print(f"  ok  [{m['cat']:<16}] {src.name}")
 
@@ -195,13 +194,23 @@ def main():
         for k in ("src", "thumb", "poster"):
             if m.get(k):
                 vivos.add(Path(m[k]).name)
-    huerfanos = 0
+    huerfanos, trabados = 0, []
     if WEB.is_dir():
         for f in WEB.iterdir():
             if f.is_file() and f.name not in vivos:
-                f.unlink(); huerfanos += 1
+                try:
+                    f.unlink(); huerfanos += 1
+                except OSError:
+                    # en Windows un archivo abierto (el servidor local, el navegador)
+                    # no se puede borrar. No es motivo para romper todo el indexado.
+                    trabados.append(f.name)
     if huerfanos:
         print(f"  {huerfanos} archivos viejos borrados de material/web")
+    if trabados:
+        print(f"  {len(trabados)} no se pudieron borrar porque algo los tiene abiertos:")
+        for t in trabados[:4]:
+            print(f"    {t}")
+        print("    (cierra el servidor o el navegador y vuelve a correr esto)")
 
     # avisar de fotos repetidas: la misma toma con dos nombres distintos
     huellas, repetidas = [], []

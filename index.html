@@ -337,7 +337,25 @@
       <h2 class="titulo-seccion">Así está hoy el condominio</h2>
       <p class="bajada">Fotos y videos tomados en el terreno.</p>
     </div>
-    <div class="recorrido__grilla" id="galeria"></div>
+    <div class="carrusel revela">
+      <div class="carrusel__tira" id="galeria" tabindex="0" role="region"
+           aria-label="Fotos y videos del terreno. Se desliza de lado; con el teclado, use las flechas."></div>
+
+      <div class="carrusel__mando">
+        <p class="carrusel__leyenda" id="carrusel-leyenda"></p>
+        <div class="carrusel__botones">
+          <button class="carrusel__flecha" type="button" data-paso="-1" aria-label="Ver las anteriores">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <span class="carrusel__cuenta" id="carrusel-cuenta" aria-live="polite"></span>
+          <button class="carrusel__flecha" type="button" data-paso="1" aria-label="Ver las siguientes">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 

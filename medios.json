@@ -14,8 +14,9 @@
    "h": 1204,
    "orientacion": "horizontal",
    "alt": "Área verde del condominio con grass sembrado y los cerros al fondo",
-   "leyenda": "Áreas verdes sembradas",
-   "destacada": false
+   "leyenda": "Grass sembrado y regado",
+   "orden": 2,
+   "galeria": true
   },
   {
    "tipo": "foto",
@@ -29,7 +30,8 @@
    "orientacion": "horizontal",
    "alt": "Banca de madera junto a un camino empedrado, entre los árboles del condominio",
    "leyenda": "Camino empedrado y zona de descanso",
-   "destacada": false
+   "orden": 3,
+   "galeria": true
   },
   {
    "tipo": "foto",
@@ -42,8 +44,9 @@
    "h": 900,
    "orientacion": "panoramica",
    "alt": "El cerro verde del condominio con un árbol en primer plano",
-   "leyenda": "El cerro, en temporada de lomas",
-   "destacada": false
+   "leyenda": "El cerro que verdea con la neblina",
+   "orden": 6,
+   "galeria": true
   },
   {
    "tipo": "foto",
@@ -57,7 +60,8 @@
    "orientacion": "vertical",
    "alt": "El letrero de Alta Colina junto al camino empedrado del ingreso",
    "leyenda": "Camino empedrado hasta el ingreso",
-   "destacada": false
+   "orden": 10,
+   "galeria": true
   },
   {
    "tipo": "foto",
@@ -71,7 +75,8 @@
    "orientacion": "horizontal",
    "alt": "El ingreso de Alta Colina con el cerro detrás",
    "leyenda": "El ingreso y el cerro",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -85,7 +90,8 @@
    "orientacion": "horizontal",
    "alt": "Placa metálica con el logo de Alta Colina sobre el pilar de ladrillo del ingreso",
    "leyenda": "El letrero del ingreso",
-   "destacada": false
+   "orden": 1,
+   "galeria": true
   },
   {
    "tipo": "foto",
@@ -99,7 +105,8 @@
    "orientacion": "horizontal",
    "alt": "El letrero de Alta Colina iluminado de noche",
    "leyenda": "El ingreso de noche",
-   "destacada": false
+   "orden": 5,
+   "galeria": true
   },
   {
    "tipo": "foto",
@@ -113,7 +120,8 @@
    "orientacion": "horizontal",
    "alt": "La pérgola del condominio en construcción, con el jardín de piedras",
    "leyenda": "La pérgola",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -127,7 +135,8 @@
    "orientacion": "horizontal",
    "alt": "Pérgola de madera y jardín de piedras con una tinaja, dentro del condominio",
    "leyenda": "Pérgola y jardín de piedras",
-   "destacada": false
+   "orden": 7,
+   "galeria": true
   },
   {
    "tipo": "foto",
@@ -141,7 +150,8 @@
    "orientacion": "horizontal",
    "alt": "Pórtico de ladrillo cara vista del condominio, con portón de madera y el cerro verde con neblina detrás",
    "leyenda": "El ingreso al condominio",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -155,7 +165,8 @@
    "orientacion": "horizontal",
    "alt": "El ingreso del condominio visto desde el camino de acceso",
    "leyenda": "Desde el camino de acceso",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -169,7 +180,8 @@
    "orientacion": "horizontal",
    "alt": "El portón del condominio entre la neblina de la mañana",
    "leyenda": "La neblina de la mañana",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -183,7 +195,8 @@
    "orientacion": "horizontal",
    "alt": "Terreno del condominio con árboles jóvenes plantados y el cerro al fondo",
    "leyenda": "Arbolado joven en las parcelas",
-   "destacada": false
+   "orden": 12,
+   "galeria": true
   },
   {
    "tipo": "foto",
@@ -197,7 +210,8 @@
    "orientacion": "panoramica",
    "alt": "Terreno del condominio con árboles al atardecer",
    "leyenda": "El terreno al atardecer",
-   "destacada": false
+   "orden": 9,
+   "galeria": true
   },
   {
    "tipo": "foto",
@@ -211,7 +225,8 @@
    "orientacion": "horizontal",
    "alt": "Cartel de bienvenida en el terreno del condominio",
    "leyenda": "Bienvenida",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -225,7 +240,8 @@
    "orientacion": "horizontal",
    "alt": "Una de las vías interiores del condominio, con una camioneta y arbolado",
    "leyenda": "Vías interiores",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -238,8 +254,26 @@
    "h": 1204,
    "orientacion": "horizontal",
    "alt": "Una de las vías interiores del condominio, con arbolado a los lados",
-   "leyenda": "Vías interiores",
-   "destacada": false
+   "leyenda": "Las vías interiores",
+   "orden": 11,
+   "galeria": true
+  },
+  {
+   "tipo": "video",
+   "cat": "video",
+   "slug": "video-entrada-al-condominio",
+   "origen": "entrada-al-condominio.mp4",
+   "src": "material/web/video-entrada-al-condominio.mp4",
+   "poster": "material/web/video-entrada-al-condominio-poster.jpg",
+   "thumb": "material/web/video-entrada-al-condominio-thumb.jpg",
+   "w": 720,
+   "h": 960,
+   "dur": 46.0,
+   "orientacion": "vertical",
+   "alt": "El portón se abre y el carro entra al condominio, con el cerro verde al fondo",
+   "leyenda": "La entrada al condominio",
+   "galeria": true,
+   "orden": 8
   },
   {
    "tipo": "video",
@@ -255,23 +289,8 @@
    "orientacion": "horizontal",
    "alt": "Video del condominio Alta Colina, con los cerros y las áreas verdes",
    "leyenda": "Muy cerca a Lima, tu tranquilidad",
-   "destacada": false
-  },
-  {
-   "tipo": "video",
-   "cat": "video",
-   "slug": "video-llegada-al-condominio",
-   "origen": "llegada-al-condominio.mp4",
-   "src": "material/web/video-llegada-al-condominio.mp4",
-   "poster": "material/web/video-llegada-al-condominio-poster.jpg",
-   "thumb": "material/web/video-llegada-al-condominio-thumb.jpg",
-   "w": 720,
-   "h": 1280,
-   "dur": 42.0,
-   "orientacion": "vertical",
-   "alt": "Llegada en carro hasta el pórtico de Alta Colina",
-   "leyenda": "Así se llega al condominio",
-   "destacada": false
+   "orden": 13,
+   "galeria": true
   },
   {
    "tipo": "video",
@@ -287,7 +306,8 @@
    "orientacion": "horizontal",
    "alt": "El cerro verde y el pastizal del condominio Alta Colina",
    "leyenda": "El cerro, en temporada de lomas",
-   "destacada": false
+   "orden": 0,
+   "galeria": true
   },
   {
    "tipo": "video",
@@ -303,7 +323,8 @@
    "orientacion": "horizontal",
    "alt": "Toma del condominio con las áreas verdes y la pérgola",
    "leyenda": "Vivir con tranquilidad",
-   "destacada": false
+   "orden": 4,
+   "galeria": true
   },
   {
    "tipo": "foto",
@@ -317,7 +338,8 @@
    "orientacion": "horizontal",
    "alt": "",
    "leyenda": "",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -331,7 +353,8 @@
    "orientacion": "horizontal",
    "alt": "",
    "leyenda": "",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -345,7 +368,8 @@
    "orientacion": "horizontal",
    "alt": "",
    "leyenda": "",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -359,7 +383,8 @@
    "orientacion": "horizontal",
    "alt": "",
    "leyenda": "",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -373,7 +398,8 @@
    "orientacion": "horizontal",
    "alt": "",
    "leyenda": "",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -387,7 +413,8 @@
    "orientacion": "horizontal",
    "alt": "",
    "leyenda": "",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -401,7 +428,8 @@
    "orientacion": "vertical",
    "alt": "",
    "leyenda": "",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -415,7 +443,8 @@
    "orientacion": "panoramica",
    "alt": "",
    "leyenda": "",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -429,7 +458,8 @@
    "orientacion": "horizontal",
    "alt": "",
    "leyenda": "",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -443,7 +473,8 @@
    "orientacion": "horizontal",
    "alt": "",
    "leyenda": "",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -457,7 +488,8 @@
    "orientacion": "vertical",
    "alt": "",
    "leyenda": "",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -471,7 +503,8 @@
    "orientacion": "horizontal",
    "alt": "Ronivel Jiménez García, asesor inmobiliario de Alta Colina",
    "leyenda": "Ronivel Jiménez García",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -485,7 +518,8 @@
    "orientacion": "panoramica",
    "alt": "",
    "leyenda": "",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -499,7 +533,8 @@
    "orientacion": "panoramica",
    "alt": "",
    "leyenda": "",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -513,7 +548,8 @@
    "orientacion": "panoramica",
    "alt": "",
    "leyenda": "",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -527,7 +563,8 @@
    "orientacion": "horizontal",
    "alt": "",
    "leyenda": "",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   },
   {
    "tipo": "foto",
@@ -541,7 +578,8 @@
    "orientacion": "panoramica",
    "alt": "",
    "leyenda": "",
-   "destacada": false
+   "galeria": false,
+   "orden": 900
   }
  ]
 }
