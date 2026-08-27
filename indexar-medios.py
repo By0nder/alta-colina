@@ -23,8 +23,13 @@ WEB    = MAT / "web"
 FOTO_EXT = {".jpg", ".jpeg", ".png", ".webp", ".heic", ".bmp", ".tif", ".tiff"}
 VIDEO_EXT = {".mp4", ".mov", ".m4v", ".avi", ".mkv", ".webm", ".3gp"}
 
-ANCHO_GRANDE = 1800
-ANCHO_THUMB  = 640
+# 2400 para que las fotos a sangre completa se vean nitidas tambien en celular,
+# donde cada punto de pantalla son dos pixeles reales. Si la original es mas
+# chica no se agranda: solo se aprovecha cuando llegan sin comprimir.
+ANCHO_GRANDE = 2400
+# 640 se quedaba corto: el carrusel muestra piezas de hasta 740 px, y en una
+# pantalla de celular moderno eso son 1480 px reales. Con 1200 se ve nitido.
+ANCHO_THUMB  = 1200
 CALIDAD      = 82
 
 # Carpetas que se indexan y con que etiqueta
@@ -92,10 +97,12 @@ def procesar_foto(src: Path, slug: str, cat: str):
     if not thumb.exists() or src.stat().st_mtime > thumb.stat().st_mtime:
         t = im.copy(); t.thumbnail((ANCHO_THUMB, ANCHO_THUMB), Image.LANCZOS)
         t.save(thumb, "JPEG", quality=78, optimize=True, progressive=True)
+    gw = Image.open(grande).size[0]
+    tw = Image.open(thumb).size[0]
     return {
         "tipo": "foto", "cat": cat, "slug": slug, "origen": src.name,
         "src": f"material/web/{grande.name}", "thumb": f"material/web/{thumb.name}",
-        "w": w, "h": h,
+        "w": w, "h": h, "src_w": gw, "thumb_w": tw,
         "orientacion": "vertical" if h > w * 1.15 else ("panoramica" if w > h * 1.6 else "horizontal"),
         "alt": "", "leyenda": "",
     }
@@ -240,6 +247,18 @@ def main():
             print(f"    {m['w']}x{m['h']}  {m['origen']}{uso}")
         print("  Menos de 900 px de ancho se pixela en pantalla grande.")
         print("  Pideles el original a mejor resolucion, o usalas chicas.")
+
+    # aviso aparte: fotos que sirven en computadora pero no en celular moderno
+    justas = [m for m in medios
+              if m["tipo"] == "foto" and m["cat"] in ("proyecto", "alrededores")
+              and 900 <= m.get("w", 0) < 2000]
+    if justas:
+        print("")
+        print(f"  {len(justas)} fotos alcanzan en computadora pero no en celular moderno.")
+        print("  En un celular cada punto de pantalla son dos pixeles reales.")
+        print("  Casi todas vienen de WhatsApp, que las achica a 1600 px.")
+        print("  Pidelas SIN comprimir: en WhatsApp, 'enviar como documento',")
+        print("  o que las suban a Drive. Una foto de celular real mide 3000-4000 px.")
 
     if repetidas:
         print("")

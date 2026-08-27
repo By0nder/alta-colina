@@ -249,11 +249,23 @@ function dibujarGaleria(datos) {
   tira.innerHTML = medios
     .map((m, i) => {
       const alt = m.alt || m.leyenda || "Alta Colina";
+      // srcset con los anchos REALES de cada archivo: si se declara un ancho que
+      // la imagen no tiene, el navegador elige mal y se ve borrosa.
+      const juego = (m) => {
+        const partes = [];
+        if (m.thumb && m.thumb_w) partes.push(`${m.thumb} ${m.thumb_w}w`);
+        // si la foto era chica, thumb y grande salen del mismo tamaño: sobra el srcset
+        if (m.src && m.src_w && m.src !== m.thumb && m.src_w > (m.thumb_w || 0))
+          partes.push(`${m.src} ${m.src_w}w`);
+        return partes.length > 1
+          ? ` srcset="${partes.join(", ")}" sizes="(max-width: 62rem) 88vw, 740px"`
+          : "";
+      };
       const interior =
         m.tipo === "video"
           ? `<img src="${m.thumb || m.poster || ""}" alt="${alt}" loading="lazy" decoding="async">
              <span class="medio__marca">${ICONO_VIDEO} Video</span>`
-          : `<img src="${m.thumb || m.src}" alt="${alt}" loading="lazy" decoding="async">`;
+          : `<img src="${m.thumb || m.src}"${juego(m)} alt="${alt}" loading="lazy" decoding="async">`;
       return `<button class="medio" type="button" data-i="${i}"
                 data-orientacion="${m.orientacion || "horizontal"}">${interior}</button>`;
     })
