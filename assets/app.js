@@ -44,9 +44,10 @@ function armarCabecera() {
 /* ------------------------------------------------------------
    EL PLANO VIVO
    ------------------------------------------------------------ */
+// se usan las mismas palabras del letrero que esta en el terreno
 const ESTADOS = {
   disponible: "Disponible",
-  reservada:  "Reservada",
+  reservada:  "Separada",
   vendida:    "Vendida",
 };
 
@@ -134,7 +135,7 @@ function armarFicha(datos) {
   const abrir = (poly) => {
     const n = Number(poly.dataset.num);
     const p = datos.parcelas.find((x) => x.num === n);
-    if (!p || p.estado === "vendida") return;
+    if (!p || p.estado === "vendida") return;   // una vendida no abre ficha
 
     if (elegida) elegida.removeAttribute("aria-current");
     elegida = poly;
@@ -142,7 +143,7 @@ function armarFicha(datos) {
 
     num.textContent = `N.º ${p.num}`;
     // sin datos cargados no se promete disponibilidad: se invita a preguntar
-    const rotulo = p.estado === "disponible" && !p.m2 ? "Consultar" : (ESTADOS[p.estado] || p.estado);
+    const rotulo = p.estado === "disponible" ? "Consultar" : (ESTADOS[p.estado] || p.estado);
     estado.textContent = rotulo;
     estado.setAttribute("data-estado", p.estado);
 
@@ -216,11 +217,9 @@ function navegarConFlechas(svg) {
 function escribirNota(datos) {
   const nota = $("#plano-nota");
   if (!nota) return;
-  // Mientras no esten cargados los estados reales, la pagina NO afirma cuantas
-  // quedan libres: en el terreno ya hay parcelas vendidas y separadas.
-  const marcadas = datos.parcelas.filter((p) => p.estado !== "disponible").length;
-  nota.textContent = marcadas
-    ? `${datos.numeradas_aqui} parcelas en el plano. La disponibilidad cambia: consulte por la que le interese.`
+  const tomadas = datos.tomadas_total;
+  nota.textContent = tomadas
+    ? `${tomadas} parcelas ya están tomadas. La disponibilidad cambia: confírmela al escribirnos.`
     : "Consulte por la parcela que le interese. La disponibilidad se confirma al momento.";
 }
 

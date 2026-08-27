@@ -54,7 +54,7 @@
     469.1,
     1082.9
    ],
-   "estado": "disponible",
+   "estado": "vendida",
    "m2": null,
    "nota": ""
   },
@@ -83,7 +83,7 @@
     547.2,
     1069.0
    ],
-   "estado": "disponible",
+   "estado": "vendida",
    "m2": null,
    "nota": ""
   },
@@ -112,7 +112,7 @@
     625.3,
     1056.0
    ],
-   "estado": "disponible",
+   "estado": "vendida",
    "m2": null,
    "nota": ""
   },
@@ -141,7 +141,7 @@
     703.5,
     1043.2
    ],
-   "estado": "disponible",
+   "estado": "vendida",
    "m2": null,
    "nota": ""
   },
@@ -170,7 +170,7 @@
     781.5,
     1032.4
    ],
-   "estado": "disponible",
+   "estado": "vendida",
    "m2": null,
    "nota": ""
   },
@@ -199,7 +199,7 @@
     859.7,
     1027.4
    ],
-   "estado": "disponible",
+   "estado": "reservada",
    "m2": null,
    "nota": ""
   },
@@ -228,7 +228,7 @@
     937.8,
     1026.1
    ],
-   "estado": "disponible",
+   "estado": "reservada",
    "m2": null,
    "nota": ""
   },
@@ -257,7 +257,7 @@
     1016.0,
     1024.7
    ],
-   "estado": "disponible",
+   "estado": "reservada",
    "m2": null,
    "nota": ""
   },
@@ -460,7 +460,7 @@
     616.0,
     900.5
    ],
-   "estado": "disponible",
+   "estado": "reservada",
    "m2": null,
    "nota": ""
   },
@@ -489,7 +489,7 @@
     540.8,
     900.5
    ],
-   "estado": "disponible",
+   "estado": "reservada",
    "m2": null,
    "nota": ""
   },
@@ -518,7 +518,7 @@
     465.6,
     900.5
    ],
-   "estado": "disponible",
+   "estado": "reservada",
    "m2": null,
    "nota": ""
   },
@@ -576,7 +576,7 @@
     409.7,
     804.5
    ],
-   "estado": "disponible",
+   "estado": "vendida",
    "m2": null,
    "nota": ""
   },
@@ -2262,5 +2262,7 @@
    "m2": null,
    "nota": ""
   }
- ]
+ ],
+ "aviso_estados": "Estados leidos por posicion del letrero del terreno y del esquema del cliente. Los numeros de lote no se leen en la foto: PENDIENTE de validar uno por uno.",
+ "tomadas_total": 16
 }

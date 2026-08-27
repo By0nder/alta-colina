@@ -1544,3 +1544,15 @@ select.campo__caja { appearance: none; cursor: pointer; padding-right: 2.5rem;
   box-shadow: var(--alza);
 }
 .casa__plano figcaption { display: flex; justify-content: space-between; gap: 1rem; max-inline-size: 46rem; margin-inline: auto; }
+
+/* los estados usan los mismos colores del letrero que esta en el terreno:
+   rojo vendido, naranja separado, claro disponible */
+.leyenda__muestra[data-estado="reservada"] { background: #D98032; }
+.leyenda__muestra[data-estado="vendida"]   { background: #C0392B; }
+.parcela[data-estado="reservada"] { fill: #D98032; stroke: #B86520; }
+.parcela[data-estado="vendida"]   { fill: #C0392B; stroke: #9B2D22; cursor: default; }
+.parcela[data-estado="vendida"]:hover { fill: #C0392B; stroke: #9B2D22; stroke-width: 1; }
+.parcela__num[data-estado="vendida"],
+.parcela__num[data-estado="reservada"] { fill: #FFFFFF; }
+.ficha__estado[data-estado="reservada"] { background: color-mix(in srgb, #D98032 18%, transparent); color: #8A4B12; }
+.ficha__estado[data-estado="vendida"]   { background: color-mix(in srgb, #C0392B 14%, transparent); color: #8E2A20; }
