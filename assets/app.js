@@ -141,12 +141,14 @@ function armarFicha(datos) {
     poly.setAttribute("aria-current", "true");
 
     num.textContent = `N.º ${p.num}`;
-    estado.textContent = ESTADOS[p.estado] || p.estado;
+    // sin datos cargados no se promete disponibilidad: se invita a preguntar
+    const rotulo = p.estado === "disponible" && !p.m2 ? "Consultar" : (ESTADOS[p.estado] || p.estado);
+    estado.textContent = rotulo;
     estado.setAttribute("data-estado", p.estado);
 
     const filas = [];
     if (p.m2) filas.push(`Área <b>${p.m2} m²</b>`);
-    else      filas.push("Área <b>por confirmar</b>");
+    else      filas.push("Consulte medidas y precio");
     if (p.nota) filas.push(p.nota);
     cuerpo.innerHTML = filas.map((f) => `<span>${f}</span>`).join("");
 
@@ -214,15 +216,12 @@ function navegarConFlechas(svg) {
 function escribirNota(datos) {
   const nota = $("#plano-nota");
   if (!nota) return;
-  const disp = datos.parcelas.filter((p) => p.estado === "disponible").length;
-  const partes = [`${datos.numeradas_aqui} parcelas dibujadas · ${disp} disponibles.`];
-  if (datos.borde_sin_confirmar > 0) {
-    partes.push(
-      `Faltan ${datos.borde_sin_confirmar} parcelas de borde y las medidas de cada una: ` +
-      `se agregan cuando llegue el plano de lotización en CAD.`
-    );
-  }
-  nota.textContent = partes.join(" ");
+  // Mientras no esten cargados los estados reales, la pagina NO afirma cuantas
+  // quedan libres: en el terreno ya hay parcelas vendidas y separadas.
+  const marcadas = datos.parcelas.filter((p) => p.estado !== "disponible").length;
+  nota.textContent = marcadas
+    ? `${datos.numeradas_aqui} parcelas en el plano. La disponibilidad cambia: consulte por la que le interese.`
+    : "Consulte por la parcela que le interese. La disponibilidad se confirma al momento.";
 }
 
 /* ------------------------------------------------------------
