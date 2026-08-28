@@ -31,7 +31,7 @@ BANDAS = [
      "esquinas": [[636, 104], [1470, 104], [1420, 262], [583, 262]]},
     {"id": "B-sup", "n": 10, "desde":  86, "dir":  1,
      "esquinas": [[466, 306], [1205, 306], [1205, 396], [466, 396]]},
-    {"id": "B-inf", "n": 10, "desde":  84, "dir": -1,
+    {"id": "B-inf", "n": 11, "desde":  85, "dir": -1,
      "esquinas": [[466, 400], [1205, 400], [1205, 488], [466, 488]]},
     {"id": "C-sup", "n": 11, "desde":  61, "dir":  1,
      "esquinas": [[288, 533], [1190, 533], [1190, 623], [288, 623]]},
@@ -47,10 +47,59 @@ BANDAS = [
      "sup": [[430, 1004], [1055, 990]],
      "inf": [[430, 1176], [500, 1152], [580, 1126], [660, 1102],
              [740, 1077], [820, 1061], [900, 1060], [1055, 1058]]},
+    # --- Parcelas de borde, leidas ampliando el plano del brochure ---
+    # La diagonal de abajo continua hacia el suroeste: 8, 7, 6 ... 1
+    {"id": "F", "n": 8, "desde": 8, "dir": -1,
+     "sup": [[430, 1010], [370, 1060], [300, 1110], [230, 1160], [140, 1215]],
+     "inf": [[430, 1180], [370, 1200], [330, 1215], [290, 1238], [250, 1266],
+             [210, 1294], [170, 1323], [140, 1345]]},
+
+    # Franja izquierda de arriba: 60, 59 (junto a la curva del camino)
+    {"id": "G", "n": 2, "desde": 60, "dir": -1,
+     "sup": [[86, 452], [190, 452]],
+     "inf": [[86, 700], [190, 700]]},
+
+    # Franja izquierda media: 32, 31
+    {"id": "H", "n": 2, "desde": 32, "dir": -1,
+     "sup": [[86, 762], [190, 762]],
+     "inf": [[86, 928], [190, 928]]},
+
+    # Franja izquierda baja: 29, 28
+    {"id": "I", "n": 2, "desde": 29, "dir": -1,
+     "sup": [[86, 940], [190, 940]],
+     "inf": [[86, 1108], [190, 1108]]},
+
+    # Cuna entre el camino y la banda D: 34 y 27
+    {"id": "J", "n": 1, "desde": 34, "dir": 1,
+     "sup": [[196, 940], [286, 940]], "inf": [[196, 1085], [286, 1085]]},
+    {"id": "K", "n": 1, "desde": 27, "dir": 1,
+     "sup": [[300, 866], [430, 866]], "inf": [[300, 985], [430, 985]]},
+
+    # Franja derecha, de arriba abajo: 96, 74, 73, 72, 46, 45, 17
+    {"id": "L", "n": 1, "desde": 96, "dir": 1,
+     "sup": [[1352, 268], [1495, 248]], "inf": [[1352, 372], [1476, 352]]},
+    {"id": "M", "n": 1, "desde": 74, "dir": 1,
+     "sup": [[1235, 415], [1440, 388]], "inf": [[1235, 545], [1420, 522]]},
+    {"id": "N", "n": 2, "desde": 73, "dir": -1,
+     "sup": [[1215, 645], [1395, 622]], "inf": [[1215, 800], [1362, 780]]},
+    {"id": "O", "n": 2, "desde": 46, "dir": -1,
+     "sup": [[1160, 818], [1352, 800]], "inf": [[1160, 955], [1322, 942]]},
+    {"id": "P", "n": 1, "desde": 17, "dir": 1,
+     "sup": [[1130, 968], [1318, 952]], "inf": [[1130, 1060], [1290, 1046]]},
+
+    # Tres parcelas angostas, pegadas al camino (en el plano salen en capsula)
+    {"id": "R", "n": 1, "desde": 58, "dir": 1,
+     "sup": [[196, 588], [286, 588]], "inf": [[196, 750], [286, 750]]},
+    {"id": "S", "n": 1, "desde": 33, "dir": 1,
+     "sup": [[196, 762], [286, 762]], "inf": [[196, 928], [286, 928]]},
+    {"id": "T", "n": 1, "desde": 30, "dir": 1,
+     "sup": [[86, 1118], [186, 1118]], "inf": [[86, 1210], [186, 1210]]},
+
+    # La rotonda de arriba a la izquierda: 105
+    {"id": "Q", "n": 1, "desde": 105, "dir": 1,
+     "sup": [[120, 130], [300, 130]], "inf": [[120, 300], [300, 300]]},
 ]
 
-# Parcelas de borde: irregulares, aun sin numeracion confirmada.
-# Se dibujan pero no se numeran hasta tener el CAD.
 BORDE_SIN_CONFIRMAR = 105 - sum(b["n"] for b in BANDAS)
 
 
