@@ -162,8 +162,15 @@ def main():
     parcelas.sort(key=lambda p: p["num"])
     geo = json.loads(GEO.read_text(encoding="utf-8")) if GEO.exists() else {}
 
+    # el conteo sale de los propios estados: asi nunca se desfasa
+    vendidas  = sum(1 for x in parcelas if x["estado"] == "vendida")
+    separadas = sum(1 for x in parcelas if x["estado"] == "reservada")
+
     data = {
         "proyecto": "Alta Colina",
+        "tomadas_total": vendidas + separadas,
+        "vendidas": vendidas,
+        "separadas": separadas,
         "aviso": ("Numeracion y medidas leidas del plano del brochure. "
                   "PENDIENTE de validar contra el CAD/DWG oficial."),
         "viewBox": [0, 0, 1600, 1435],
@@ -178,7 +185,8 @@ def main():
     SALIDA.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
 
     d = sum(1 for p in parcelas if p["estado"] == "disponible")
-    print(f"{len(parcelas)} parcelas numeradas ({d} disponibles)")
+    print(f"{len(parcelas)} parcelas numeradas ({d} disponibles, "
+          f"{vendidas} vendidas, {separadas} separadas)")
     print(f"{BORDE_SIN_CONFIRMAR} de borde sin numerar - faltan del CAD")
     print(f"-> {SALIDA.name}")
     if not any(p["m2"] for p in parcelas):

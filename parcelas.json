@@ -1,5 +1,8 @@
 {
  "proyecto": "Alta Colina",
+ "tomadas_total": 16,
+ "vendidas": 7,
+ "separadas": 9,
  "aviso": "Numeracion y medidas leidas del plano del brochure. PENDIENTE de validar contra el CAD/DWG oficial.",
  "viewBox": [
   0,
