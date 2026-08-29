@@ -17,6 +17,12 @@ try:
 except ImportError:
     sys.exit("Falta Pillow. Instalalo con:  py -m pip install pillow")
 
+# tratamiento de color: las fotos vienen del celular sin editar
+try:
+    from tratar_color import tratar as tratar_color
+except Exception:
+    tratar_color = None
+
 RAIZ   = Path(__file__).resolve().parent
 MAT    = RAIZ / "material"
 WEB    = MAT / "web"
@@ -31,6 +37,10 @@ ANCHO_GRANDE = 2400
 # pantalla de celular moderno eso son 1480 px reales. Con 1200 se ve nitido.
 ANCHO_THUMB  = 1200
 CALIDAD      = 82
+
+# A que fotos se les corrige el color. Los planos y el logo NO: ahi el color
+# tiene que quedarse como esta.
+TRATAR_COLOR = {"proyecto", "alrededores", "sin-clasificar", "asesor"}
 
 # Carpetas que se indexan y con que etiqueta
 CARPETAS = {
@@ -91,6 +101,15 @@ def procesar_foto(src: Path, slug: str, cat: str):
         print(f"  ! no se pudo abrir {src.name}: {e}")
         return None
     w, h = im.size
+
+    # el color se corrige sobre la version web; el original no se toca nunca
+    tratada = False
+    if tratar_color and cat in TRATAR_COLOR:
+        try:
+            im = tratar_color(im)
+            tratada = True
+        except Exception as e:
+            print(f"  ! no se pudo tratar el color de {src.name}: {e}")
     if not grande.exists() or src.stat().st_mtime > grande.stat().st_mtime:
         g = im.copy(); g.thumbnail((ANCHO_GRANDE, ANCHO_GRANDE), Image.LANCZOS)
         g.save(grande, "JPEG", quality=CALIDAD, optimize=True, progressive=True)
@@ -102,7 +121,7 @@ def procesar_foto(src: Path, slug: str, cat: str):
     return {
         "tipo": "foto", "cat": cat, "slug": slug, "origen": src.name,
         "src": f"material/web/{grande.name}", "thumb": f"material/web/{thumb.name}",
-        "w": w, "h": h, "src_w": gw, "thumb_w": tw,
+        "w": w, "h": h, "src_w": gw, "thumb_w": tw, "color_tratado": tratada,
         "orientacion": "vertical" if h > w * 1.15 else ("panoramica" if w > h * 1.6 else "horizontal"),
         "alt": "", "leyenda": "",
     }
