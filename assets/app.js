@@ -5,6 +5,17 @@
 
 // el asesor que atiende las consultas (Ronivel). El 970 166 956 es el del proyecto.
 const WSP = "51907155138";
+
+/* ------------------------------------------------------------
+   PIXEL DE META — para las campañas de Facebook e Instagram
+   Sin esto los anuncios no se pueden optimizar: Meta no sabe
+   quién escribió por WhatsApp, así que no aprende a quién
+   mostrarle el anuncio y el presupuesto se gasta a ciegas.
+
+   Poner aquí el ID del píxel cuando la cuenta esté lista.
+   Mientras esté vacío no carga nada y la página no se frena.
+   ------------------------------------------------------------ */
+const PIXEL_META = "";   // ej: "1234567890123456"
 const NS  = "http://www.w3.org/2000/svg";
 
 const $  = (s, d = document) => d.querySelector(s);
@@ -12,6 +23,24 @@ const $$ = (s, d = document) => [...d.querySelectorAll(s)];
 
 const enlaceWsp = (texto) =>
   `https://wa.me/${WSP}?text=${encodeURIComponent(texto)}`;
+
+function armarPixel() {
+  if (!PIXEL_META) return;
+  /* eslint-disable */
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+  /* eslint-enable */
+  fbq("init", PIXEL_META);
+  fbq("track", "PageView");
+}
+
+/** Avisa a Meta de una conversión. Si no hay píxel, no hace nada. */
+function medir(evento, datos) {
+  if (typeof fbq === "function") fbq("track", evento, datos || {});
+}
 
 /* ------------------------------------------------------------
    WhatsApp — todos los botones llevan "vi su página web"
@@ -23,6 +52,8 @@ function armarWhatsapp() {
     a.href = enlaceWsp(msg);
     a.target = "_blank";
     a.rel = "noopener";
+    // escribir por WhatsApp ES la conversión: es el lead que se paga
+    a.addEventListener("click", () => medir("Contact", { content_name: "WhatsApp" }));
   });
 }
 
@@ -160,6 +191,7 @@ function armarFicha(datos) {
     wsp.rel = "noopener";
 
     ficha.setAttribute("data-visible", "si");
+    medir("ViewContent", { content_type: "parcela", content_ids: [String(p.num)] });
   };
 
   $("#plano-svg").addEventListener("click", (e) => {
@@ -492,6 +524,7 @@ function armarFormulario() {
       `Quisiera que me envíen precios y las parcelas disponibles.`,
     ].filter(Boolean);
 
+    medir("Lead", { content_name: "formulario" });
     window.open(enlaceWsp(partes.join(" ")), "_blank", "noopener");
     const aviso = document.querySelector("#pedir-info-listo");
     if (aviso) { aviso.hidden = false; aviso.setAttribute("role", "status"); }
@@ -538,6 +571,7 @@ async function cargar(ruta) {
 }
 
 (async function inicio() {
+  armarPixel();
   armarWhatsapp();
   armarCabecera();
   armarFormulario();
