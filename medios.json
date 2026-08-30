@@ -359,7 +359,8 @@
    "alt": "El portón se abre y el carro entra al condominio, con el cerro verde al fondo",
    "leyenda": "La entrada al condominio",
    "orden": 8,
-   "galeria": true
+   "galeria": false,
+   "nota": "El terreno esta en obra: en video se ve desierto y desanima."
   },
   {
    "tipo": "video",
