@@ -1556,3 +1556,35 @@ select.campo__caja { appearance: none; cursor: pointer; padding-right: 2.5rem;
 .parcela__num[data-estado="reservada"] { fill: #FFFFFF; }
 .ficha__estado[data-estado="reservada"] { background: color-mix(in srgb, #D98032 18%, transparent); color: #8A4B12; }
 .ficha__estado[data-estado="vendida"]   { background: color-mix(in srgb, #C0392B 14%, transparent); color: #8E2A20; }
+
+/* ============================================================
+   RITMO — la segunda mitad eran cinco secciones claras seguidas
+   y ahi el sitio se aplanaba. Ahora alternan.
+   ============================================================ */
+
+/* --- Su casa, sobre oscuro: el render se mira como en una sala a oscuras --- */
+.casa--oscura { background: var(--pizarra); color: var(--garua-luz); }
+.casa--oscura .rotulo { color: color-mix(in srgb, var(--garua-luz) 66%, transparent); }
+.casa--oscura .rotulo::before { background: var(--ladrillo); }
+.casa--oscura .bajada { color: color-mix(in srgb, var(--garua-luz) 78%, transparent); }
+.casa--oscura .bajada strong { color: var(--garua-luz); }
+.casa--oscura .casa__n { color: var(--garua-luz); }
+.casa--oscura .casa__u { color: var(--arena); }
+.casa--oscura .casa__t {
+  color: color-mix(in srgb, var(--garua-luz) 70%, transparent);
+  border-block-start-color: color-mix(in srgb, var(--garua-luz) 24%, transparent);
+}
+.casa--oscura .casa__video figcaption,
+.casa--oscura .casa__plano figcaption,
+.casa--oscura .referencia figcaption { color: color-mix(in srgb, var(--garua-luz) 66%, transparent); }
+.casa--oscura .referencia__aviso { color: var(--arena); }
+.casa--oscura .lamina { background: var(--garua-luz); border-color: transparent; }
+.casa--oscura .lamina figcaption { color: var(--pizarra-sua); border-block-start-color: color-mix(in srgb, var(--pizarra) 16%, transparent); }
+
+/* --- Los alrededores, sobre verde loma: es el entorno natural --- */
+.alrededores--verde { background: var(--loma); color: var(--garua-luz); }
+.alrededores--verde .rotulo { color: color-mix(in srgb, var(--garua-luz) 70%, transparent); }
+.alrededores--verde .rotulo::before { background: var(--arena); }
+.alrededores--verde .vecino__nombre { color: var(--garua-luz); }
+.alrededores--verde .vecino__glosa { color: color-mix(in srgb, var(--garua-luz) 76%, transparent); }
+.alrededores--verde .vecino__foto { box-shadow: 0 12px 30px -16px rgb(0 0 0 / .5); }

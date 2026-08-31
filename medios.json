@@ -359,8 +359,7 @@
    "alt": "El portón se abre y el carro entra al condominio, con el cerro verde al fondo",
    "leyenda": "La entrada al condominio",
    "orden": 8,
-   "galeria": false,
-   "nota": "El terreno esta en obra: en video se ve desierto y desanima."
+   "galeria": false
   },
   {
    "tipo": "video",
@@ -387,9 +386,9 @@
    "src": "material/web/video-portada-cerro.mp4",
    "poster": "material/web/video-portada-cerro-poster.jpg",
    "thumb": "material/web/video-portada-cerro-thumb.jpg",
-   "w": 848,
-   "h": 478,
-   "dur": 12.0,
+   "w": 1280,
+   "h": 720,
+   "dur": 10.0,
    "orientacion": "horizontal",
    "alt": "El cerro verde y el pastizal del condominio Alta Colina",
    "leyenda": "El cerro, en temporada de lomas",
