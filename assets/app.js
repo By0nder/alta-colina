@@ -166,7 +166,7 @@ function armarFicha(datos) {
   const abrir = (poly) => {
     const n = Number(poly.dataset.num);
     const p = datos.parcelas.find((x) => x.num === n);
-    if (!p || p.estado === "vendida") return;   // una vendida no abre ficha
+    if (!p) return;
 
     if (elegida) elegida.removeAttribute("aria-current");
     elegida = poly;
@@ -182,10 +182,29 @@ function armarFicha(datos) {
     if (p.m2) filas.push(`Área <b>${p.m2} m²</b>`);
     else      filas.push("Consulte medidas y precio");
     if (p.nota) filas.push(p.nota);
+
+    // una parcela tomada no puede ser un callejon sin salida: se ofrecen las
+    // libres de al lado, que es lo que haria un vendedor parado en el terreno.
+    const tomada = p.estado === "vendida" || p.estado === "reservada";
+    let vecinas = [];
+    if (tomada) {
+      vecinas = datos.parcelas
+        .filter((x) => x.estado === "disponible" && Math.abs(x.num - p.num) <= 3)
+        .sort((a, b) => Math.abs(a.num - p.num) - Math.abs(b.num - p.num))
+        .slice(0, 3)
+        .map((x) => x.num);
+      if (vecinas.length) filas.push(`Libres al lado: <b>${vecinas.join(" · ")}</b>`);
+    }
     cuerpo.innerHTML = filas.map((f) => `<span>${f}</span>`).join("");
 
+    // y el boton pregunta por lo que si se puede vender
+    wsp.textContent = tomada && vecinas.length
+      ? `Preguntar por la ${vecinas.length > 1 ? "N.º " + vecinas[0] + " u otra libre" : "N.º " + vecinas[0]}`
+      : "Preguntar por esta parcela";
     wsp.href = enlaceWsp(
-      `Hola, vi su página web de Alta Colina y quisiera información sobre la parcela N.º ${p.num}.`
+      tomada && vecinas.length
+        ? `Hola, vi su página web de Alta Colina. La parcela N.º ${p.num} figura como ${p.estado === "vendida" ? "vendida" : "separada"}. ¿Me puede dar información de las libres de al lado? Vi la ${vecinas.join(", la ")}.`
+        : `Hola, vi su página web de Alta Colina y quisiera información sobre la parcela N.º ${p.num}.`
     );
     wsp.target = "_blank";
     wsp.rel = "noopener";
@@ -214,7 +233,7 @@ function armarFicha(datos) {
   });
 }
 
-/* Con 77 parcelas, hacer 77 tabulaciones para pasar el plano es inaceptable.
+/* Con 105 parcelas, hacer 77 tabulaciones para pasar el plano es inaceptable.
    Se entra una vez y adentro se anda con las flechas (roving tabindex). */
 function navegarConFlechas(svg) {
   const parcelas = () => $$('.parcela[role="button"]', svg);
