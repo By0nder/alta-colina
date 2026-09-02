@@ -1598,3 +1598,17 @@ select.campo__caja { appearance: none; cursor: pointer; padding-right: 2.5rem;
 .alrededores--verde .vecino__nombre { color: var(--garua-luz); }
 .alrededores--verde .vecino__glosa { color: color-mix(in srgb, var(--garua-luz) 76%, transparent); }
 .alrededores--verde .vecino__foto { box-shadow: 0 12px 30px -16px rgb(0 0 0 / .5); }
+
+
+/* --- la forma de pago, pegada a la partida ---
+   Va aqui a proposito: el argumento es que estar independizado es lo que
+   permite bancarizar. Separarlo en otra seccion romperia esa relacion. --- */
+.partida__pago {
+  margin-block-start: 1.25rem;
+  padding-block-start: 1.25rem;
+  border-block-start: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  font-size: var(--t-s);
+  line-height: 1.65;
+  max-inline-size: 46ch;
+}
+.partida__pago b { font-weight: 600; }
