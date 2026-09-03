@@ -550,6 +550,11 @@ main > section { scroll-margin-top: 5rem; }
 
 .plano__svg { inline-size: 100%; block-size: auto; overflow: visible; }
 
+/* el camino y las areas verdes del plano OFICIAL: son sub-parcelas reales
+   (106 el camino de servidumbre, 17 y 85 las areas comunes), no adornos */
+.plano__camino-of { fill: var(--ladrillo); opacity: .92; }
+.plano__verde-of  { fill: #7E9B5E; opacity: .5; }
+
 .plano__terreno { fill: #E4EBE0; stroke: color-mix(in srgb, var(--garua-luz) 26%, transparent); stroke-width: 2; }
 .plano__verde   { fill: #7E9B5E; opacity: .55; }
 .plano__camino  { fill: var(--ladrillo); opacity: .9; }

@@ -86,7 +86,7 @@ function dibujarPlano(datos) {
   const svg = $("#plano-svg");
   if (!svg || !datos) return;
 
-  const [, , ancho, alto] = datos.viewBox || [0, 0, 1600, 1435];
+  const [ancho, alto] = datos._lienzo || [1400, 1291];
   svg.setAttribute("viewBox", `0 0 ${ancho} ${alto}`);
 
   const geo = datos.geometria || {};
@@ -108,10 +108,20 @@ function dibujarPlano(datos) {
   pintar(capa("capa-verdes"),  geo.verdes,  "plano__verde");
   pintar(capa("capa-camino"),  geo.camino,  "plano__camino");
 
+  // el camino y las areas verdes ahora son sub-parcelas reales del plano oficial:
+  // se pintan primero, debajo de los lotes, y no se pueden tocar.
+  const gComunes = capa("capa-comunes");
+  datos.parcelas.filter((p) => p.estado === "comun").forEach((p) => {
+    const poly = document.createElementNS(NS, "polygon");
+    poly.setAttribute("points", p.puntos.map((c) => c.join(",")).join(" "));
+    poly.setAttribute("class", p.num === 106 ? "plano__camino-of" : "plano__verde-of");
+    gComunes.appendChild(poly);
+  });
+
   const gParcelas = capa("capa-parcelas");
   const gNumeros  = capa("capa-numeros");
 
-  datos.parcelas.forEach((p) => {
+  datos.parcelas.filter((p) => p.estado !== "comun").forEach((p) => {
     const poly = document.createElementNS(NS, "polygon");
     poly.setAttribute("points", p.puntos.map((c) => c.join(",")).join(" "));
     poly.setAttribute("class", "parcela");
@@ -179,8 +189,8 @@ function armarFicha(datos) {
     estado.setAttribute("data-estado", p.estado);
 
     const filas = [];
-    if (p.m2) filas.push(`Área <b>${p.m2} m²</b>`);
-    else      filas.push("Consulte medidas y precio");
+    if (p.m2) filas.push(`Área <b>${p.m2.toLocaleString("es-PE")} m²</b>`);
+    filas.push("Consulte el precio");
     if (p.nota) filas.push(p.nota);
 
     // una parcela tomada no puede ser un callejon sin salida: se ofrecen las
