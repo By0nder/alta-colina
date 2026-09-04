@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="es-PE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Libro de Reclamaciones — Alta Colina</title>
+<meta name="description" content="Libro de Reclamaciones virtual del Condominio Alta Colina, conforme a la Ley 29571.">
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400,0..100,0..1&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/estilos.css">
+<style>
+  /* la cabecera del sitio esta pensada para ir sobre el video oscuro del hero:
+     su texto es claro. Aqui el fondo es claro, asi que hay que invertirla. */
+  .cabecera { background: var(--garua-luz); border-block-end: var(--borde); }
+  .cabecera .marca, .cabecera .marca__nombre { color: var(--pizarra); }
+  .cabecera .marca__bajada { color: var(--seca); }   /* 5.49 sobre la garua clara */
+
+  .lr { max-inline-size: 54rem; margin-inline: auto; padding: 7rem 1.25rem 5rem; }
+  .lr h1 { margin-block: 0 1rem; }
+  .lr__aviso { background: color-mix(in srgb, var(--arena) 22%, transparent);
+    border-inline-start: 3px solid var(--ladrillo); padding: 1rem 1.25rem;
+    margin-block: 1.5rem 2rem; font-size: var(--t-s); line-height: 1.65; }
+  .lr__prov { border: var(--borde); padding: 1.25rem; margin-block-end: 2.5rem; font-size: var(--t-s); }
+  .lr__prov dt { color: var(--garua-honda); font-family: var(--dato); font-size: .72rem;
+    letter-spacing: .06em; text-transform: uppercase; }
+  .lr__prov dd { margin: .15rem 0 .85rem; }
+  .lr__prov dd:last-child { margin-block-end: 0; }
+  .lr__grupo { border: 0; padding: 0; margin: 0 0 2.5rem; }
+  .lr__grupo legend { font-family: var(--display); font-size: 1.4rem; margin-block-end: 1rem;
+    font-variation-settings: "SOFT" 20, "WONK" 1; }
+  .lr__campos { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+  .lr__campo { display: flex; flex-direction: column; gap: .35rem; }
+  .lr__campo--ancho { grid-column: 1 / -1; }
+  .lr__campo label { font-size: .85rem; font-weight: 500; }
+  .lr__campo input, .lr__campo textarea {
+    font: inherit; font-size: var(--t-s); padding: .62rem .7rem;
+    border: 1px solid var(--garua-honda); border-radius: var(--radio);
+    background: #fff; color: var(--pizarra); }
+  .lr__campo textarea { min-block-size: 7rem; resize: vertical; }
+  .lr__campo input:focus-visible, .lr__campo textarea:focus-visible {
+    outline: 2px solid var(--bosque); outline-offset: 1px; }
+  .lr__req { color: var(--ladrillo); }
+  .lr__tipos { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .lr__tipo { flex: 1 1 16rem; display: flex; gap: .6rem; align-items: flex-start;
+    border: 1px solid var(--garua-honda); border-radius: var(--radio); padding: .9rem; cursor: pointer; }
+  .lr__tipo:has(:checked) { border-color: var(--bosque);
+    background: color-mix(in srgb, var(--bosque) 7%, transparent); }
+  .lr__tipo b { display: block; }
+  .lr__tipo em { display: block; font-style: normal; font-size: .82rem; color: var(--garua-honda); }
+  .lr__constancia { border: 2px solid var(--bosque); border-radius: var(--radio);
+    padding: 1.5rem; margin-block-start: 2.5rem;
+    background: color-mix(in srgb, var(--bosque) 5%, transparent); }
+  .lr__constancia h2 { margin-block: 0 .75rem; font-size: 1.3rem; }
+  .lr__num { font-family: var(--dato); font-size: 1.45rem; color: var(--bosque); }
+  .lr__acciones { display: flex; gap: .75rem; flex-wrap: wrap; margin-block-start: 1.25rem; }
+  @media print {
+    .cabecera, .pie, .lr__aviso, #lr-form, .lr__acciones { display: none !important; }
+    .lr { padding-block-start: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="envoltura cabecera__cuerpo">
+    <a class="marca" href="index.html">
+      <span class="marca__texto">
+        <span class="marca__nombre">ALTA COLINA</span>
+        <span class="marca__bajada">CONDOMINIO</span>
+      </span>
+    </a>
+  </div>
+</header>
+
+<main class="lr">
+  <p class="rotulo">Ley 29571</p>
+  <h1 class="titulo-seccion">Libro de Reclamaciones</h1>
+
+  <div class="lr__aviso">
+    Conforme al Código de Protección y Defensa del Consumidor, este establecimiento
+    cuenta con un Libro de Reclamaciones a su disposición. Presentar un reclamo
+    <b>no impide acudir a otras vías de solución de controversias ni es requisito
+    previo para denunciar ante el Indecopi</b>. El proveedor debe responder en un plazo
+    no mayor a <b>quince (15) días hábiles</b>, prorrogable por igual periodo previa
+    comunicación al consumidor.
+  </div>
+
+  <dl class="lr__prov">
+    <dt>Proveedor</dt><dd>Ronivel Jiménez García</dd>
+    <dt>RUC</dt><dd>10420881326</dd>
+    <dt>Domicilio del establecimiento</dt>
+    <dd>El Manzano, Pampa El Taro, Santo Domingo de los Olleros, Huarochirí, Lima</dd>
+    <dt>Correo</dt><dd><a href="mailto:Ronivel84@gmail.com">Ronivel84@gmail.com</a></dd>
+  </dl>
+
+  <form id="lr-form" novalidate>
+    <fieldset class="lr__grupo">
+      <legend>1. Sus datos</legend>
+      <div class="lr__campos">
+        <div class="lr__campo">
+          <label for="nombre">Nombres y apellidos <span class="lr__req">*</span></label>
+          <input id="nombre" name="nombre" required autocomplete="name"></div>
+        <div class="lr__campo">
+          <label for="doc">DNI o carné de extranjería <span class="lr__req">*</span></label>
+          <input id="doc" name="doc" required inputmode="numeric"></div>
+        <div class="lr__campo">
+          <label for="tel">Teléfono <span class="lr__req">*</span></label>
+          <input id="tel" name="tel" type="tel" required autocomplete="tel"></div>
+        <div class="lr__campo">
+          <label for="correo">Correo electrónico <span class="lr__req">*</span></label>
+          <input id="correo" name="correo" type="email" required autocomplete="email"></div>
+        <div class="lr__campo lr__campo--ancho">
+          <label for="domicilio">Domicilio <span class="lr__req">*</span></label>
+          <input id="domicilio" name="domicilio" required autocomplete="street-address"></div>
+        <div class="lr__campo lr__campo--ancho">
+          <label for="tutor">Si es menor de edad, nombre del padre, madre o apoderado</label>
+          <input id="tutor" name="tutor"></div>
+      </div>
+    </fieldset>
+
+    <fieldset class="lr__grupo">
+      <legend>2. Identificación del bien contratado</legend>
+      <div class="lr__campos">
+        <div class="lr__campo">
+          <label for="bien">Producto o servicio <span class="lr__req">*</span></label>
+          <input id="bien" name="bien" required value="Parcela — Condominio Alta Colina"></div>
+        <div class="lr__campo">
+          <label for="monto">Monto reclamado</label>
+          <input id="monto" name="monto" inputmode="decimal" placeholder="S/ o US$"></div>
+        <div class="lr__campo lr__campo--ancho">
+          <label for="descripcion">Descripción <span class="lr__req">*</span></label>
+          <textarea id="descripcion" name="descripcion" required></textarea></div>
+      </div>
+    </fieldset>
+
+    <fieldset class="lr__grupo">
+      <legend>3. Detalle</legend>
+      <div class="lr__tipos">
+        <label class="lr__tipo">
+          <input type="radio" name="tipo" value="RECLAMO" checked>
+          <span><b>Reclamo</b><em>Disconformidad con el producto o el servicio recibido.</em></span>
+        </label>
+        <label class="lr__tipo">
+          <input type="radio" name="tipo" value="QUEJA">
+          <span><b>Queja</b><em>Malestar respecto de la atención al público.</em></span>
+        </label>
+      </div>
+      <div class="lr__campos" style="margin-block-start:1.25rem">
+        <div class="lr__campo lr__campo--ancho">
+          <label for="detalle">Detalle <span class="lr__req">*</span></label>
+          <textarea id="detalle" name="detalle" required></textarea></div>
+        <div class="lr__campo lr__campo--ancho">
+          <label for="pedido">Pedido del consumidor <span class="lr__req">*</span></label>
+          <textarea id="pedido" name="pedido" required></textarea></div>
+      </div>
+    </fieldset>
+
+    <button class="boton boton--principal" type="submit">Registrar y enviar</button>
+    <p class="nota" style="margin-block-start:.85rem">
+      Al enviar se abre su correo con la hoja ya redactada. Guarde el número de registro:
+      es la constancia de que presentó el reclamo.
+    </p>
+  </form>
+
+  <section class="lr__constancia" id="lr-constancia" hidden aria-live="polite">
+    <h2>Constancia de registro</h2>
+    <p>Número de registro: <b class="lr__num" id="lr-num"></b></p>
+    <p class="nota" id="lr-fecha"></p>
+    <p style="margin-block-start:1rem">
+      Conserve este número. El proveedor debe responderle en un plazo no mayor a
+      <b>15 días hábiles</b>.
+    </p>
+    <div class="lr__acciones">
+      <button class="boton" type="button" id="lr-imprimir">Imprimir o guardar en PDF</button>
+      <a class="boton" id="lr-copia" href="#">Descargar copia</a>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="envoltura pie__cuerpo">
+    <div class="pie__datos">
+      <p class="pie__legal">
+        Ronivel Jiménez García · RUC 10420881326 · <a href="index.html">Volver al sitio</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const f = document.getElementById("lr-form");
+  const caja = document.getElementById("lr-constancia");
+  document.getElementById("lr-imprimir").addEventListener("click", () => window.print());
+
+  f.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    if (!f.reportValidity()) return;
+
+    const d = new FormData(f);
+    const ahora = new Date();
+    const p = (n) => String(n).padStart(2, "0");
+    // correlativo legible y unico en la practica: fecha + hora del registro
+    const num = "AC-" + ahora.getFullYear() + p(ahora.getMonth() + 1) + p(ahora.getDate())
+              + "-" + p(ahora.getHours()) + p(ahora.getMinutes()) + p(ahora.getSeconds());
+    const L = (k, v) => (v ? k + ": " + v + "\n" : "");
+
+    const cuerpo =
+      "LIBRO DE RECLAMACIONES - CONDOMINIO ALTA COLINA\n" +
+      "Ley 29571, Codigo de Proteccion y Defensa del Consumidor\n\n" +
+      "N. de registro: " + num + "\n" +
+      "Fecha: " + ahora.toLocaleString("es-PE") + "\n\n" +
+      "PROVEEDOR\n" +
+      "Ronivel Jimenez Garcia - RUC 10420881326\n" +
+      "El Manzano, Pampa El Taro, Santo Domingo de los Olleros, Huarochiri, Lima\n\n" +
+      "CONSUMIDOR\n" +
+      L("Nombre", d.get("nombre")) + L("Documento", d.get("doc")) +
+      L("Telefono", d.get("tel")) + L("Correo", d.get("correo")) +
+      L("Domicilio", d.get("domicilio")) + L("Apoderado", d.get("tutor")) +
+      "\nBIEN CONTRATADO\n" +
+      L("Producto o servicio", d.get("bien")) + L("Monto reclamado", d.get("monto")) +
+      L("Descripcion", d.get("descripcion")) +
+      "\n" + d.get("tipo") + "\n" +
+      L("Detalle", d.get("detalle")) + L("Pedido", d.get("pedido")) +
+      "\nEl proveedor debe responder en un plazo no mayor a 15 dias habiles.\n";
+
+    document.getElementById("lr-num").textContent = num;
+    document.getElementById("lr-fecha").textContent = "Registrado el " + ahora.toLocaleString("es-PE");
+
+    const a = document.getElementById("lr-copia");
+    a.href = URL.createObjectURL(new Blob([cuerpo], { type: "text/plain;charset=utf-8" }));
+    a.download = num + ".txt";
+
+    caja.hidden = false;
+    caja.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    location.href = "mailto:Ronivel84@gmail.com"
+      + "?subject=" + encodeURIComponent(d.get("tipo") + " " + num + " - Libro de Reclamaciones Alta Colina")
+      + "&body=" + encodeURIComponent(cuerpo);
+  });
+})();
+</script>
+</body>
+</html>
