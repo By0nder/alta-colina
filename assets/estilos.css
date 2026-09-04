@@ -1617,3 +1617,148 @@ select.campo__caja { appearance: none; cursor: pointer; padding-right: 2.5rem;
   max-inline-size: 46ch;
 }
 .partida__pago b { font-weight: 600; }
+
+
+/* ============================================================
+   MAPA / LISTA
+   El plano es la pieza firma, pero en un celular la parcela mas
+   angosta mide 17 px: ningun ancho de SVG la vuelve tocable. Una
+   fila de lista siempre mide 44. Por eso en celular la lista manda.
+   ============================================================ */
+/* visible para lectores de pantalla, no en la pantalla */
+.visualmente-oculto {
+  position: absolute;
+  inline-size: 1px; block-size: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip-path: inset(50%);
+  overflow: hidden; white-space: nowrap;
+}
+
+.plano__vistas {
+  display: flex;
+  gap: 2px;
+  margin-block-end: 1rem;
+  padding: 3px;
+  border-radius: var(--radio);
+  background: color-mix(in srgb, var(--garua-luz) 12%, transparent);
+  inline-size: fit-content;
+}
+.plano__vista {
+  font: inherit;
+  font-size: var(--t-s);
+  font-weight: 500;
+  color: var(--garua-luz);
+  background: none;
+  border: 0;
+  border-radius: calc(var(--radio) - 1px);
+  padding: 0.55rem 1.15rem;
+  min-block-size: 44px;
+  cursor: pointer;
+  transition: background .16s ease, color .16s ease;
+}
+.plano__vista[aria-selected="true"] {
+  background: var(--garua-luz);
+  color: var(--pizarra);
+}
+.plano__vista:focus-visible { outline: 2px solid var(--garua-luz); outline-offset: 2px; }
+
+.lista__filtros {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-block-end: 1rem;
+}
+.lista__filtro {
+  font: inherit;
+  font-size: .88rem;
+  color: color-mix(in srgb, var(--garua-luz) 76%, transparent);
+  background: none;
+  border: 1px solid color-mix(in srgb, var(--garua-luz) 26%, transparent);
+  border-radius: var(--radio);
+  padding: .5rem .9rem;
+  min-block-size: 44px;
+  cursor: pointer;
+}
+.lista__filtro[aria-pressed="true"] {
+  background: var(--garua-luz);
+  color: var(--pizarra);
+  border-color: var(--garua-luz);
+}
+.lista__buscar { margin-inline-start: auto; }
+.lista__buscar input {
+  font: inherit;
+  font-size: .88rem;
+  min-block-size: 44px;
+  inline-size: 9.5rem;
+  padding: .5rem .7rem;
+  color: var(--garua-luz);
+  background: color-mix(in srgb, var(--garua-luz) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--garua-luz) 26%, transparent);
+  border-radius: var(--radio);
+}
+.lista__buscar input::placeholder { color: color-mix(in srgb, var(--garua-luz) 52%, transparent); }
+
+.lista__cuenta {
+  font-family: var(--dato);
+  font-size: .8rem;
+  color: color-mix(in srgb, var(--garua-luz) 66%, transparent);
+  margin-block: 0 .75rem;
+}
+
+.lista__filas { list-style: none; margin: 0; padding: 0; }
+
+.lista__fila {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr auto auto;
+  gap: .75rem;
+  align-items: center;
+  inline-size: 100%;
+  min-block-size: 56px;
+  padding: .6rem .85rem;
+  font: inherit;
+  text-align: start;
+  color: var(--garua-luz);
+  background: none;
+  border: 0;
+  border-block-end: 1px solid color-mix(in srgb, var(--garua-luz) 14%, transparent);
+  cursor: pointer;
+  transition: background .14s ease;
+}
+.lista__fila:hover { background: color-mix(in srgb, var(--garua-luz) 7%, transparent); }
+.lista__fila:focus-visible { outline: 2px solid var(--garua-luz); outline-offset: -2px; }
+.lista__fila[data-estado="vendida"] { opacity: .55; }
+
+.lista__num { font-family: var(--dato); font-size: 1.05rem; font-weight: 500; white-space: nowrap; }
+.lista__m2  { font-family: var(--dato); font-size: .95rem; }
+.lista__tag {
+  font-family: var(--dato);
+  font-size: .68rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .28rem .55rem;
+  border-radius: var(--radio);
+  white-space: nowrap;
+}
+.lista__tag[data-estado="disponible"] { background: var(--garua-luz); color: var(--pizarra); }
+.lista__tag[data-estado="reservada"]  { background: #D98032; color: var(--pizarra); }
+.lista__tag[data-estado="vendida"]    { background: #C0392B; color: #FFFFFF; }
+.lista__flecha { opacity: .5; }
+
+.lista__vacio {
+  padding: 2rem 0;
+  text-align: center;
+  color: color-mix(in srgb, var(--garua-luz) 66%, transparent);
+}
+
+.plano__pista--lista { display: none; }
+
+@media (max-width: 780px) {
+  /* el aparato desde el que compra este senor */
+  .plano__pista { display: none; }
+  .plano__pista--lista { display: block; }
+  .lista__fila { grid-template-columns: 4.9rem 1fr auto; gap: .5rem; }
+  .lista__flecha { display: none; }
+  .lista__buscar { margin-inline-start: 0; inline-size: 100%; }
+  .lista__buscar input { inline-size: 100%; }
+}

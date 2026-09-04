@@ -210,15 +210,36 @@
       </div>
     </div>
 
+    <div class="plano__vistas" role="tablist" aria-label="Cómo ver las parcelas">
+      <button class="plano__vista" type="button" role="tab" id="tab-mapa"
+              aria-controls="plano-mapa" aria-selected="true">Mapa</button>
+      <button class="plano__vista" type="button" role="tab" id="tab-lista"
+              aria-controls="plano-lista" aria-selected="false">Lista</button>
+    </div>
+
     <div class="plano__lienzo revela">
-      <div class="plano__marco" tabindex="0" role="group"
-           aria-label="Plano del condominio: 105 parcelas. Use las flechas para recorrerlas y Enter para abrir una.">
+      <div class="plano__marco" id="plano-mapa" role="tabpanel" aria-labelledby="tab-mapa" tabindex="0"
+           aria-label="Plano del condominio: 103 lotes. Use las flechas para recorrerlas y Enter para abrir una.">
         <svg class="plano__svg" id="plano-svg" viewBox="0 0 1600 1435"
              role="img" aria-label="Plano de lotización del condominio Alta Colina">
           <title>Plano de lotización — Alta Colina</title>
         </svg>
       </div>
       <p class="plano__pista" aria-hidden="true">Deslice para recorrer el plano</p>
+      <p class="plano__pista plano__pista--lista" aria-hidden="true">En el celular conviene la lista</p>
+
+      <div class="lista" id="plano-lista" role="tabpanel" aria-labelledby="tab-lista" hidden>
+        <div class="lista__filtros" role="group" aria-label="Filtrar parcelas">
+          <button class="lista__filtro" type="button" data-filtro="disponible" aria-pressed="true">Disponibles</button>
+          <button class="lista__filtro" type="button" data-filtro="todas" aria-pressed="false">Todas</button>
+          <label class="lista__buscar">
+            <span class="visualmente-oculto">Buscar por número de parcela</span>
+            <input type="search" id="lista-buscar" inputmode="numeric" placeholder="N.º de parcela" autocomplete="off">
+          </label>
+        </div>
+        <p class="lista__cuenta" id="lista-cuenta" role="status"></p>
+        <ul class="lista__filas" id="lista-filas"></ul>
+      </div>
 
       <div class="ficha" id="ficha" role="status" aria-live="polite" data-visible="no">
         <button class="ficha__cerrar" type="button" id="ficha-cerrar" aria-label="Cerrar ficha">✕</button>

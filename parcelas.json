@@ -5,9 +5,9 @@
   1291.3
  ],
  "vendidas": 7,
- "separadas": 9,
- "tomadas_total": 16,
- "disponibles": 87,
+ "separadas": 10,
+ "tomadas_total": 17,
+ "disponibles": 86,
  "comunes": [
   17,
   85,
@@ -43,7 +43,7 @@
   },
   {
    "num": 2,
-   "estado": "vendida",
+   "estado": "reservada",
    "m2": 500.0,
    "puntos": [
     [
@@ -309,7 +309,7 @@
   },
   {
    "num": 8,
-   "estado": "reservada",
+   "estado": "vendida",
    "m2": 928.34,
    "puntos": [
     [
@@ -524,7 +524,7 @@
   },
   {
    "num": 13,
-   "estado": "disponible",
+   "estado": "reservada",
    "m2": 521.0,
    "puntos": [
     [
@@ -1138,7 +1138,7 @@
   },
   {
    "num": 24,
-   "estado": "reservada",
+   "estado": "disponible",
    "m2": 520.0,
    "puntos": [
     [
@@ -1165,7 +1165,7 @@
   },
   {
    "num": 25,
-   "estado": "reservada",
+   "estado": "disponible",
    "m2": 523.27,
    "puntos": [
     [
@@ -1227,7 +1227,7 @@
   },
   {
    "num": 27,
-   "estado": "disponible",
+   "estado": "reservada",
    "m2": 935.42,
    "puntos": [
     [
@@ -1348,7 +1348,7 @@
   },
   {
    "num": 30,
-   "estado": "disponible",
+   "estado": "reservada",
    "m2": 1000.0,
    "puntos": [
     [
@@ -8411,5 +8411,6 @@
    ],
    "nota": "Camino de servidumbre"
   }
- ]
+ ],
+ "_estados": "Ubicados por posicion desde la foto del letrero del terreno. Los numeros no son legibles en la foto: PENDIENTE que Ronivel confirme la lista."
 }

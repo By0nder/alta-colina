@@ -154,6 +154,95 @@ function dibujarPlano(datos) {
   armarFicha(datos);
   navegarConFlechas(svg);
   escribirNota(datos);
+  armarLista(datos, svg);
+}
+
+
+/* La lista es la vista que el celular si puede tocar.
+   Medido: la parcela mas angosta del plano da 17 px de ancho — ningun tamano de
+   SVG la vuelve alcanzable con el dedo. Una fila de lista siempre da 56 px.
+   No sustituye al plano: lo acompana, y en pantalla chica arranca elegida. */
+function armarLista(datos, svg) {
+  const panelMapa  = $("#plano-mapa");
+  const panelLista = $("#plano-lista");
+  const filas      = $("#lista-filas");
+  const cuenta     = $("#lista-cuenta");
+  const buscar     = $("#lista-buscar");
+  const tabMapa    = $("#tab-mapa");
+  const tabLista   = $("#tab-lista");
+  if (!panelLista || !filas || !tabMapa) return;
+
+  const lotes = datos.parcelas.filter((p) => p.estado !== "comun");
+  let filtro = "disponible";
+
+  const pintar = () => {
+    const q = (buscar?.value || "").trim();
+    const visibles = lotes.filter((p) => {
+      if (filtro === "disponible" && p.estado !== "disponible") return false;
+      if (q && !String(p.num).startsWith(q)) return false;
+      return true;
+    });
+
+    filas.innerHTML = "";
+    if (!visibles.length) {
+      filas.innerHTML = '<li class="lista__vacio">No hay parcelas con ese número.</li>';
+      cuenta.textContent = "";
+      return;
+    }
+
+    const frag = document.createDocumentFragment();
+    visibles.forEach((p) => {
+      const li = document.createElement("li");
+      const b  = document.createElement("button");
+      b.type = "button";
+      b.className = "lista__fila";
+      b.dataset.num = p.num;
+      b.dataset.estado = p.estado;
+      b.innerHTML =
+        `<span class="lista__num">N.º ${p.num}</span>` +
+        `<span class="lista__m2">${p.m2 ? p.m2.toLocaleString("es-PE") + " m²" : ""}</span>` +
+        `<span class="lista__tag" data-estado="${p.estado}">${ESTADOS[p.estado] || p.estado}</span>` +
+        `<span class="lista__flecha" aria-hidden="true">›</span>`;
+      b.setAttribute("aria-label",
+        `Parcela ${p.num}, ${p.m2} metros cuadrados, ${ESTADOS[p.estado] || p.estado}. Ver detalle.`);
+      // se reusa el mismo camino que el plano: asi la ficha, el WhatsApp y la
+      // medicion del pixel son identicos se llegue por donde se llegue.
+      b.addEventListener("click", () => {
+        const poly = svg.querySelector(`.parcela[data-num="${p.num}"]`);
+        if (poly) poly.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      });
+      li.appendChild(b);
+      frag.appendChild(li);
+    });
+    filas.appendChild(frag);
+
+    const libres = lotes.filter((p) => p.estado === "disponible").length;
+    cuenta.textContent = filtro === "disponible"
+      ? `${visibles.length} de ${libres} disponibles`
+      : `${visibles.length} de ${lotes.length} lotes`;
+  };
+
+  const verLista = (si) => {
+    tabLista.setAttribute("aria-selected", si ? "true" : "false");
+    tabMapa.setAttribute("aria-selected", si ? "false" : "true");
+    panelLista.hidden = !si;
+    panelMapa.hidden = si;
+    if (si) pintar();
+  };
+
+  tabMapa.addEventListener("click", () => verLista(false));
+  tabLista.addEventListener("click", () => verLista(true));
+  $$(".lista__filtro").forEach((b) => {
+    b.addEventListener("click", () => {
+      filtro = b.dataset.filtro;
+      $$(".lista__filtro").forEach((o) => o.setAttribute("aria-pressed", String(o === b)));
+      pintar();
+    });
+  });
+  buscar?.addEventListener("input", pintar);
+
+  // en pantalla chica la lista arranca elegida: es donde el plano falla
+  verLista(window.matchMedia("(max-width: 780px)").matches);
 }
 
 function armarFicha(datos) {
