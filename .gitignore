@@ -20,3 +20,24 @@ _full.html
 _movil.html
 _cap_movil.html
 RESPUESTA-RONIVEL-dominio-y-precios.md
+
+# cocina interna: nunca al repo del cliente, que es publico
+PLAN-REDISENO.md
+vista-previa/
+parcelas-VIEJO.json
+__pycache__/
+*.py
+*.pyc
+_*.json
+_*.html
+
+# planos de casas de terceros: llevan el nombre del propietario en el cajetin.
+# El sitio nunca los usa y el repo es publico. No se suben.
+material/planos-de-clientes/
+material/planos/
+material/referencia-stock/
+material/entrantes/
+material/**/LEE-ESTO.txt
+material/*.docx
+material/*.pdf
+_sobran.txt

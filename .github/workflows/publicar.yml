@@ -25,6 +25,17 @@ jobs:
       url: ${{ steps.despliegue.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+
+      # Red de seguridad: el repo es publico y este sitio es de un cliente.
+      # Si alguna vez se sube por error cocina interna o material de terceros,
+      # aqui se queda fuera del artefacto que ve el visitante.
+      - name: Quitar lo que no es del sitio
+        run: |
+          rm -rf vista-previa herramientas __pycache__ .github material/planos-de-clientes                  material/planos material/referencia-stock material/entrantes
+          rm -f PLAN-REDISENO.md NOTAS-INTERNAS.md datos-proyecto.md direccion-de-arte.md                 README.md parcelas-VIEJO.json *.py *.docx
+          find material -name 'LEE-ESTO.txt' -delete 2>/dev/null || true
+          echo "Queda para publicar:"; ls -1
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

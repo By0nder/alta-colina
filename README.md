@@ -14,7 +14,7 @@ en El Manzano, Pampa El Taro, Santo Domingo de los Olleros (Huarochirí, Lima), 
 |---|---|
 | **Portada** | Video del cerro en bucle, con la foto del pórtico como respaldo |
 | **El lugar** | Por qué el cerro verdea: el fenómeno de las lomas costeras |
-| **El plano vivo** | 77 parcelas clicables. Cada una abre su ficha y escribe al WhatsApp preguntando por esa parcela |
+| **El plano vivo** | 103 lotes clicables (106 sub-parcelas; 3 son áreas comunes). Cada una abre su ficha y escribe al WhatsApp preguntando por esa parcela |
 | **La obra** | Lo que ya está construido: pórtico, cerco, vías, áreas verdes, cerco vivo con goteo, biodigestores |
 | **La partida** | Partida registral 15355546, verificable en SUNARP |
 | **Su casa** | Los planos de arquitectura que se entregan con la parcela |
