@@ -174,6 +174,10 @@ function armarLista(datos, svg) {
 
   const lotes = datos.parcelas.filter((p) => p.estado !== "comun");
   let filtro = "disponible";
+  // 103 filas seguidas hacen la seccion larguisima: se muestra una tanda y el
+  // resto se despliega. Buscando ya son pocas, asi que ahi no estorba.
+  const TANDA = 8;
+  let desplegada = false;
 
   const pintar = () => {
     const q = (buscar?.value || "").trim();
@@ -187,11 +191,15 @@ function armarLista(datos, svg) {
     if (!visibles.length) {
       filas.innerHTML = '<li class="lista__vacio">No hay parcelas con ese número.</li>';
       cuenta.textContent = "";
+      if (masBtn) masBtn.hidden = true;
       return;
     }
 
+    const recorta = !desplegada && !q && visibles.length > TANDA;
+    const mostradas = recorta ? visibles.slice(0, TANDA) : visibles;
+
     const frag = document.createDocumentFragment();
-    visibles.forEach((p) => {
+    mostradas.forEach((p) => {
       const li = document.createElement("li");
       const b  = document.createElement("button");
       b.type = "button";
@@ -220,7 +228,28 @@ function armarLista(datos, svg) {
     cuenta.textContent = filtro === "disponible"
       ? `${visibles.length} de ${libres} disponibles`
       : `${visibles.length} de ${lotes.length} lotes`;
+
+    if (masBtn) {
+      const faltan = visibles.length - mostradas.length;
+      masBtn.hidden = !q && visibles.length > TANDA ? false : true;
+      masBtn.textContent = faltan
+        ? `Ver las ${faltan} restantes`
+        : "Ver menos";
+      masBtn.setAttribute("aria-expanded", String(!recorta));
+    }
   };
+
+  const masBtn = $("#lista-mas");
+  masBtn?.addEventListener("click", () => {
+    desplegada = !desplegada;
+    const arriba = filas.getBoundingClientRect().top;
+    pintar();
+    // al plegar, devolver la vista al inicio de la lista para no quedar colgado
+    if (!desplegada && arriba < 0) {
+      filas.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+    masBtn.focus();
+  });
 
   const verLista = (si) => {
     tabLista.setAttribute("aria-selected", si ? "true" : "false");
@@ -235,6 +264,7 @@ function armarLista(datos, svg) {
   $$(".lista__filtro").forEach((b) => {
     b.addEventListener("click", () => {
       filtro = b.dataset.filtro;
+      desplegada = false;
       $$(".lista__filtro").forEach((o) => o.setAttribute("aria-pressed", String(o === b)));
       pintar();
     });

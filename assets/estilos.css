@@ -1762,3 +1762,37 @@ select.campo__caja { appearance: none; cursor: pointer; padding-right: 2.5rem;
   .lista__buscar { margin-inline-start: 0; inline-size: 100%; }
   .lista__buscar input { inline-size: 100%; }
 }
+
+
+/* Desplegar el resto de la lista. Va pegado al final de las filas y con un velo
+   encima, para que se lea como "hay mas debajo" y no como un boton suelto. */
+.lista__mas {
+  position: relative;
+  display: block;
+  inline-size: 100%;
+  min-block-size: 52px;
+  margin-block-start: -1px;
+  padding: .9rem 1rem;
+  font: inherit;
+  font-family: var(--dato);
+  font-size: .85rem;
+  letter-spacing: .02em;
+  color: var(--garua-luz);
+  background: color-mix(in srgb, var(--garua-luz) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--garua-luz) 20%, transparent);
+  border-radius: var(--radio);
+  cursor: pointer;
+  transition: background .16s ease;
+}
+.lista__mas:hover { background: color-mix(in srgb, var(--garua-luz) 15%, transparent); }
+.lista__mas:focus-visible { outline: 2px solid var(--garua-luz); outline-offset: 2px; }
+.lista__mas::after {
+  content: " ↓";
+  opacity: .7;
+}
+.lista__mas[aria-expanded="true"]::after { content: " ↑"; }
+
+/* mientras esta plegada, la ultima fila se desvanece: se nota que sigue */
+.lista__filas:has(+ .lista__mas[aria-expanded="false"]) .lista__fila:last-child {
+  opacity: .55;
+}
