@@ -4,10 +4,10 @@
   1400.0,
   1291.3
  ],
- "vendidas": 7,
- "separadas": 10,
- "tomadas_total": 17,
- "disponibles": 86,
+ "vendidas": 9,
+ "separadas": 9,
+ "tomadas_total": 18,
+ "disponibles": 85,
  "comunes": [
   17,
   85,
@@ -16,7 +16,7 @@
  "parcelas": [
   {
    "num": 1,
-   "estado": "reservada",
+   "estado": "disponible",
    "m2": 144.7,
    "puntos": [
     [
@@ -43,7 +43,7 @@
   },
   {
    "num": 2,
-   "estado": "reservada",
+   "estado": "disponible",
    "m2": 500.0,
    "puntos": [
     [
@@ -376,7 +376,7 @@
   },
   {
    "num": 9,
-   "estado": "reservada",
+   "estado": "vendida",
    "m2": 825.79,
    "puntos": [
     [
@@ -439,7 +439,7 @@
   },
   {
    "num": 10,
-   "estado": "reservada",
+   "estado": "vendida",
    "m2": 560.0,
    "puntos": [
     [
@@ -551,7 +551,7 @@
   },
   {
    "num": 14,
-   "estado": "disponible",
+   "estado": "reservada",
    "m2": 521.0,
    "puntos": [
     [
@@ -578,7 +578,7 @@
   },
   {
    "num": 15,
-   "estado": "disponible",
+   "estado": "reservada",
    "m2": 521.0,
    "puntos": [
     [
@@ -605,7 +605,7 @@
   },
   {
    "num": 16,
-   "estado": "disponible",
+   "estado": "reservada",
    "m2": 518.94,
    "puntos": [
     [
@@ -1138,7 +1138,7 @@
   },
   {
    "num": 24,
-   "estado": "disponible",
+   "estado": "reservada",
    "m2": 520.0,
    "puntos": [
     [
@@ -1165,7 +1165,7 @@
   },
   {
    "num": 25,
-   "estado": "disponible",
+   "estado": "reservada",
    "m2": 523.27,
    "puntos": [
     [
@@ -1196,7 +1196,7 @@
   },
   {
    "num": 26,
-   "estado": "reservada",
+   "estado": "disponible",
    "m2": 1006.55,
    "puntos": [
     [
@@ -1227,7 +1227,7 @@
   },
   {
    "num": 27,
-   "estado": "reservada",
+   "estado": "disponible",
    "m2": 935.42,
    "puntos": [
     [
@@ -1258,7 +1258,7 @@
   },
   {
    "num": 28,
-   "estado": "disponible",
+   "estado": "reservada",
    "m2": 1592.24,
    "puntos": [
     [
@@ -1348,7 +1348,7 @@
   },
   {
    "num": 30,
-   "estado": "reservada",
+   "estado": "disponible",
    "m2": 1000.0,
    "puntos": [
     [
@@ -1578,7 +1578,7 @@
   },
   {
    "num": 36,
-   "estado": "vendida",
+   "estado": "disponible",
    "m2": 520.0,
    "puntos": [
     [
@@ -1605,7 +1605,7 @@
   },
   {
    "num": 37,
-   "estado": "disponible",
+   "estado": "vendida",
    "m2": 520.0,
    "puntos": [
     [
@@ -8412,5 +8412,5 @@
    "nota": "Camino de servidumbre"
   }
  ],
- "_estados": "Ubicados por posicion desde la foto del letrero del terreno. Los numeros no son legibles en la foto: PENDIENTE que Ronivel confirme la lista."
+ "_estados": "Leidos del letrero del terreno: los sellos se ubicaron alineando el plano oficial con la foto (el camino de servidumbre sirve de referencia) y cada sello se amplio para leer si dice VENDIDO o SEPARADO."
 }

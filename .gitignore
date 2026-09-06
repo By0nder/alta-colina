@@ -41,3 +41,6 @@ material/**/LEE-ESTO.txt
 material/*.docx
 material/*.pdf
 _sobran.txt
+_*.png
+_*.npy
+_*.txt
