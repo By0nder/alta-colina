@@ -4,7 +4,7 @@ Sitio web del condominio **Alta Colina**: 106 sub-parcelas independizadas en SUN
 en El Manzano, Pampa El Taro, Santo Domingo de los Olleros (Huarochirí, Lima), a
 15 minutos de la Plaza de Pachacámac.
 
-**Ver el sitio:** https://by0nder.github.io/alta-colina/
+**Ver el sitio:** https://alta-colina.com/
 
 ---
 

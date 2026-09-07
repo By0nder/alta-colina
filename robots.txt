@@ -1,8 +1,4 @@
-# OJO: en un sitio de proyecto (by0nder.github.io/alta-colina/) este archivo
-# NO lo lee ningun rastreador: robots.txt solo se consulta en la raiz del origen.
-# Sirve el dia que se apunte un dominio propio. Mientras tanto, el sitemap hay
-# que enviarlo a mano en Google Search Console.
 User-agent: *
 Allow: /
 
-Sitemap: https://by0nder.github.io/alta-colina/sitemap.xml
+Sitemap: https://alta-colina.com/sitemap.xml
