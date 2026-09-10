@@ -46,3 +46,9 @@ _*.npy
 _*.txt
 DONDE-QUEDAMOS.md
 .claude/
+
+# Las dos fichas de Ronivel: HECHAS, guardadas fuera del repo a proposito.
+# No se publican hasta que pague. Volver a ponerlas en linea = mover las dos
+# carpetas de _fichas-listas/ a la raiz y hacer commit. Nada mas.
+_fichas-listas/
+_mx/
